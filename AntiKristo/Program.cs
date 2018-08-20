@@ -13,7 +13,18 @@ namespace AntiKristo {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+
+            Form1 myForm = new Form1();
+
+            InterceptKeys.OnKeyPressed = myForm.OnKeyPressed;
+            InterceptKeys.Init();
+
+            Application.Run(myForm);
+
+            InterceptKeys.Destory();
+
         }
+        
     }
 }
